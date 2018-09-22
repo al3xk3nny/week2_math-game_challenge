@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Caveat+Brush" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href="css/hover-min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #ffe880;
+        }
+        
+        .body__header {
+            margin-top: 100px;
+            text-align: center;
+        }
+        
+        .body__header h1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 4rem;
+            text-transform: uppercase;
+            color: #17a2b8;
+        }
+        
+        .body__btns {
+            margin-top: 100px;
+        }
+        
+        .body__btns--mod {
+            margin-bottom: 20px;
+            height: 100px;
+            width: 100px;
+            font-size: 3rem;
+        }
+        
+        #body__section {
+            display: none;
+            margin-top: 50px;
+            margin-left: 50px;
+            margin-right: 50px;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        #body__section p {
+            font-size: 1rem;
+            color: #17a2b8;
+        }
+        
+        #body__section h4 {
+            margin-top: 50px;
+            color: #17a2b8;
+        }
+        
+        .body__score {
+            margin-top: 50px;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            color: #17a2b8;
+        }
+        
+        .body__question {
+            margin-top: 10px;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            font-size: 2rem;
+            color: #17a2b8;
+        }
+        
+        .body__answer {
+            margin-top: 10px;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            color: #17a2b8;
+        }
+        
+        .form__btn--mod {
+            margin-top: 10px;
+            color: #0b505b;
+        }
+        
+        #status {
+            margin-top: 10px;
+        }
+        
+        #status .fa-check {
+            font-size: 2rem;
+            color: #28a745;
+        }
+        
+        #status .fa-times {
+            font-size: 2rem;
+            color: #dc3545;
+        }
+        
+    </style>
+
+    <title>Math Game Project</title>
+</head>
+
+<body>
+    
+    <div class="header body__header">
+        <h1>Maths Game Project</h1>
+    </div>
+
+    <div class="container">
+        <div class="row body__btns">
+            <div class=" col-12 col-sm-4 text-center">
+                <button type="button" class="btn btn-danger hvr-bounce-in body__btns--mod" onclick="setAdditionGame()"><i class="fas fa-plus"></i></button>
+            </div>
+            <div class="col-12 col-sm-4 text-center">
+                <button type="button" class="btn btn-primary hvr-bounce-in body__btns--mod" onclick="setSubtractionGame()"><i class="fas fa-minus"></i></button>
+            </div>
+            <div class=" col-12 col-sm-4 text-center">
+                <button type="button" class="btn btn-success hvr-bounce-in body__btns--mod" onclick="setMultiplicationGame()"><i class="fas fa-times"></i></button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="body__section">
+        <p>Using the buttons above, choose an addition game, a subtraction game or a multiplication game and answer the question asked. Your score is counted across all three games.<p>
+        <h4>Let's begin!</h4>
+    </div>
+
+    <div class="container" id="body__game-info">
+        <div class="row body__score">
+            <div class="col-12 col-sm-6 offset-sm-3">
+                <p>Your score is: <span id="score">0</span></p>
+            </div>
+        </div>
+        <div class="row body__question">
+            <div class="col-12 col-sm-6 offset-sm-3">
+                <p id="question"></p>
+            </div>
+        </div>
+        <div class="row body__answer">
+            <div class="col-12 col-sm-6 offset-sm-3">
+                <form id="myForm" name="answerForm" onsubmit="checkAnswer(); return false;" action="#" data-gametype="addition">
+
+                    <div>
+                        <p>Enter answer:</p>
+                    </div>
+                    <input type="number" name="answer"><div id="status"></div>
+                    <input type="hidden" name="rightAnswer">
+                    <div><input type="submit" class="btn btn-info form__btn--mod" value="submit"></div>
+                
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="mathgame.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>

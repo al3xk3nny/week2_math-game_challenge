@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Math Game</title>
+</head>
+
+<body>
+
+    <button onclick="setAdditionGame()">Addition</button>
+    <button onclick="setSubtractionGame()">Subtraction</button>
+    <button onclick="setMultiplicationGame()">Multiplication</button>
+    <p>Your score is: <span id="score">0</span></p>
+    <p id="question"></p>
+
+    <form id="myForm" name="answerForm" onsubmit="checkAnswer(); return false;" action="#" data-gametype="addition"> <!--onSubmit runs the checkAnswer() .js function. return false stops the page reloading when the form is submitted so that the score doesn't reset to zero. --> <!--data-gametype - the data prefix is there to show that the attribute (gametype) is one that we have made up. When you change gametype to subtraction or multiplication the game knows what question to ask. -->
+
+        Enter answer: <input type="number" name="answer"> <!--'name' is a type of ID used when handeling forms. -->
+        <input type="hidden" name="rightAnswer"> <!--name="rightAnswer" is compared with name="answer" in the line above to valiate input.-->
+        <input type="submit" value="submit">
+
+    </form>
+
+    <script src="mathgame.js"></script>
+</body>
+
+</html>
