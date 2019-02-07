@@ -41,13 +41,13 @@ function checkAnswer() {
 }
 
 function gameStart() {
-    document.getElementById("body__section").style.display="block";
-    document.getElementById("body__game-info").style.display="none";
+    document.getElementById("section1").style.display="block";
+    document.getElementById("section2").style.display="none";
 }
 
 function gameDisplay() {
-    document.getElementById("body__game-info").style.display="block";
-    document.getElementById("body__section").style.display="none";
+    document.getElementById("section2").style.display="block";
+    document.getElementById("section1").style.display="none";
 }
 
 function additionQuiz() {
